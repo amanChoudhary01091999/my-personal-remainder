@@ -7,7 +7,7 @@ const remainderSchema = new mongoose.Schema({
     startDate: { type: Number, required: true },
     endDate: { type: Number, required: true },
     isActive: { type: Boolean, required: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },  // Changed 'User' to lowercase for consistency
+    User: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },  // Changed 'User' to lowercase for consistency
 });
 
 export default mongoose.model('Remainder', remainderSchema);  // Capitalized the model name for convention

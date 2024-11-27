@@ -67,14 +67,15 @@ router.post('/add', userIdMiddleware, (req, res) => {
     const { priority, content, startDate, endDate } = req.body;
     const userId = req.userId;
 
+
     const reminder = new Remainder({
         _id: new mongoose.Types.ObjectId(),
-        priority,
-        content,
-        startDate,
-        endDate,
+        priority: priority,
+        content: content,
+        startDate: startDate,
+        endDate: endDate,
         isActive: true,
-        User: userId,
+        User: userId
     });
 
     reminder
@@ -88,7 +89,7 @@ router.post('/add', userIdMiddleware, (req, res) => {
                     startDate: Date.now(),
                     endDate: result.endDate,
                     isActive: result.isActive,
-                    user: result.user,
+                    user: result.User
                 },
             });
         })
